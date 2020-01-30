@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['what',['what',['../classBNO__055Exception.html#a3289a90c1dcb392bb5b80e30f420f7ae',1,'BNO_055Exception::what()'],['../classGearMotorException.html#a89d9db4c03f0f1e74aefe59715913a3b',1,'GearMotorException::what()'],['../classGPIOException.html#a2c4fd4128c1e7ac6280346dc5fea74fc',1,'GPIOException::what()'],['../classHardwareInterfaceException.html#a22e872614636725a3899726723d5dca8',1,'HardwareInterfaceException::what()'],['../classHC__SR04Exception.html#a0020406c9365ba6e3ac96d8b7e588097',1,'HC_SR04Exception::what()'],['../classI2CException.html#a233498189fcb98f1aa83e83af17d6f1e',1,'I2CException::what()'],['../classTaskDistributorException.html#aa27acdf0c5f7876ec5a640901447cebe',1,'TaskDistributorException::what()'],['../classTCST__1103Exception.html#af80d58eede3c6bf5b875b35f719ef21c',1,'TCST_1103Exception::what()'],['../classVMA__401Exception.html#adb20f549b6074d88c51e67d95ba0dde7',1,'VMA_401Exception::what()']]],
+  ['writebytes',['writeBytes',['../classI2C.html#a4b7ce00a4a0d6140125369632e9926bb',1,'I2C']]]
+];

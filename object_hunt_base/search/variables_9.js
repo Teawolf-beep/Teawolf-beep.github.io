@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['m4g',['M4G',['../namespaceBNO055_1_1OperationMode.html#a1edcb351f991fc2ea1c4b96749cbb02f',1,'BNO055::OperationMode']]],
+  ['mag_5fdata_5fx_5flsb',['MAG_DATA_X_LSB',['../namespaceBNO055_1_1Register.html#a8ef3ba75890f87385e482082199c4559',1,'BNO055::Register']]],
+  ['mag_5fdata_5fx_5fmsb',['MAG_DATA_X_MSB',['../namespaceBNO055_1_1Register.html#adb0b1b42b5401b3f3dd8d2e4623a8623',1,'BNO055::Register']]],
+  ['mag_5fdata_5fy_5flsb',['MAG_DATA_Y_LSB',['../namespaceBNO055_1_1Register.html#a98252e9c5453f6ab83e466c0314af178',1,'BNO055::Register']]],
+  ['mag_5fdata_5fy_5fmsb',['MAG_DATA_Y_MSB',['../namespaceBNO055_1_1Register.html#afdabe0e3f72a655ede1293cbc7e47f45',1,'BNO055::Register']]],
+  ['mag_5fdata_5fz_5flsb',['MAG_DATA_Z_LSB',['../namespaceBNO055_1_1Register.html#aef3bc2be5184570c9ff405a22ff5a726',1,'BNO055::Register']]],
+  ['mag_5fdata_5fz_5fmsb',['MAG_DATA_Z_MSB',['../namespaceBNO055_1_1Register.html#a472496ce7a964a1e86c088cf72751512',1,'BNO055::Register']]],
+  ['mag_5foffset_5fx_5flsb',['MAG_OFFSET_X_LSB',['../namespaceBNO055_1_1Register.html#a5f5530c0cea6328ded443e08f3b07298',1,'BNO055::Register']]],
+  ['mag_5foffset_5fx_5fmsb',['MAG_OFFSET_X_MSB',['../namespaceBNO055_1_1Register.html#a5f7e2f1d84439fc0fdee9ab8756d869a',1,'BNO055::Register']]],
+  ['mag_5foffset_5fy_5flsb',['MAG_OFFSET_Y_LSB',['../namespaceBNO055_1_1Register.html#ac0c6e3afba2acdf022c4d8473a9feb44',1,'BNO055::Register']]],
+  ['mag_5foffset_5fy_5fmsb',['MAG_OFFSET_Y_MSB',['../namespaceBNO055_1_1Register.html#a4db9bceb5ee12f81560cadb84548caa5',1,'BNO055::Register']]],
+  ['mag_5foffset_5fz_5flsb',['MAG_OFFSET_Z_LSB',['../namespaceBNO055_1_1Register.html#a9454decd99cd283afa10449ad00508f1',1,'BNO055::Register']]],
+  ['mag_5foffset_5fz_5fmsb',['MAG_OFFSET_Z_MSB',['../namespaceBNO055_1_1Register.html#a3a2afdb05fc77be409d0b127be3a6e9e',1,'BNO055::Register']]],
+  ['mag_5fradius_5flsb',['MAG_RADIUS_LSB',['../namespaceBNO055_1_1Register.html#a4000d1b914988d16caf395b371e5b316',1,'BNO055::Register']]],
+  ['mag_5fradius_5fmsb',['MAG_RADIUS_MSB',['../namespaceBNO055_1_1Register.html#a74ee485204f0dd718f9073bbc86c5fcf',1,'BNO055::Register']]],
+  ['mag_5frev_5fid',['MAG_REV_ID',['../namespaceBNO055_1_1Register.html#a949cb6888f93e72e8bbbbca7018044d3',1,'BNO055::Register']]],
+  ['maggyro',['MAGGYRO',['../namespaceBNO055_1_1OperationMode.html#a90cfda9fef017f3dfcdc673b1b299bcf',1,'BNO055::OperationMode']]],
+  ['magonly',['MAGONLY',['../namespaceBNO055_1_1OperationMode.html#ad64e6a4b70fe0b4b8ee6ad065a03bfb0',1,'BNO055::OperationMode']]],
+  ['message',['message',['../classBNO__055Exception.html#af899dd9a5df139418ba0dd61f68ad14e',1,'BNO_055Exception::message()'],['../classGearMotorException.html#afdf57626e9be5dfa3b00c1c1f284f26c',1,'GearMotorException::message()'],['../classGPIOException.html#a6fc66d4a360f0950b2e8aeee99412956',1,'GPIOException::message()'],['../classHardwareInterfaceException.html#aa624700bec09565a18704054c2a3a4ef',1,'HardwareInterfaceException::message()'],['../classHC__SR04Exception.html#a3dd9aab016501fc435c349c6ce894eef',1,'HC_SR04Exception::message()'],['../classI2CException.html#ae92c91b6d308ef04e0a3cf74f20957f9',1,'I2CException::message()'],['../classTaskDistributorException.html#a7be3932ba468013d39a96cbc6001391a',1,'TaskDistributorException::message()'],['../classVMA__401Exception.html#aea06f3d56569ba7b7264a20182099cc1',1,'VMA_401Exception::message()']]]
+];

@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['rear',['REAR',['../namespaceUltraSonic_1_1Device.html#a2872defcea61d3d77561ddb960bd32ca',1,'UltraSonic::Device']]],
+  ['rear_5fecho',['REAR_ECHO',['../namespaceUltraSonic_1_1Pin.html#a93264ecc880db644fd5ae9b8dc12bec1',1,'UltraSonic::Pin']]],
+  ['rear_5fleft',['REAR_LEFT',['../namespaceRevolution_1_1Device.html#ae6be9580e64dd9c1190455b5ee40431d',1,'Revolution::Device::REAR_LEFT()'],['../namespaceRevolution_1_1Pin.html#acf8f940b563b130360e80f19a3b74a60',1,'Revolution::Pin::REAR_LEFT()']]],
+  ['rear_5fright',['REAR_RIGHT',['../namespaceRevolution_1_1Device.html#a91bb9548a40904c5b7bb434fd05602e0',1,'Revolution::Device::REAR_RIGHT()'],['../namespaceRevolution_1_1Pin.html#a1a491ef0d5bee81c864f8021c2fabe6b',1,'Revolution::Pin::REAR_RIGHT()']]],
+  ['rear_5ftrigger',['REAR_TRIGGER',['../namespaceUltraSonic_1_1Pin.html#ab503092a2a8cf9d9d104381c95f62839',1,'UltraSonic::Pin']]],
+  ['res0_5f_5f',['res0__',['../structUltraSonic_1_1Request.html#a33d8f264c9101389cf6c95368138df3e',1,'UltraSonic::Request::res0__()'],['../structRevolution_1_1Request.html#af94e44ea8b3e9409a34bd7e21d3d9a25',1,'Revolution::Request::res0__()'],['../structRotation_1_1Command.html#a762c5bbd980d3c546fadd7799efbd356',1,'Rotation::Command::res0__()']]],
+  ['res1_5f_5f',['res1__',['../structUltraSonic_1_1Request.html#a6a8540b51ab3bb952ff615ac2bd2f5ba',1,'UltraSonic::Request::res1__()'],['../structRevolution_1_1Request.html#a3c22058170b7db26e76c8c05ed41e417',1,'Revolution::Request::res1__()'],['../structRotation_1_1Command.html#a2ec376f94ba806a423c81a3a4e72e052',1,'Rotation::Command::res1__()']]],
+  ['revolution',['REVOLUTION',['../namespaceAction.html#ada20644553c1be29b39c1aa7a0494983',1,'Action']]],
+  ['right',['RIGHT',['../namespaceStepper_1_1Direction.html#adef18165aed5576d1c57ba7c7efd6c84',1,'Stepper::Direction::RIGHT()'],['../namespaceUltraSonic_1_1Device.html#a9b0fb6cdcde261c407d6528cb9d96778',1,'UltraSonic::Device::RIGHT()'],['../namespaceRotation_1_1Direction.html#a072f91f11ac9d4f32796b03a98cb4a02',1,'Rotation::Direction::RIGHT()']]],
+  ['right_5fecho',['RIGHT_ECHO',['../namespaceUltraSonic_1_1Pin.html#a8794249e43db999c468c972586550d4e',1,'UltraSonic::Pin']]],
+  ['right_5ftrigger',['RIGHT_TRIGGER',['../namespaceUltraSonic_1_1Pin.html#a658a04f62e7e6f2f1dbd7a16f19fd2ce',1,'UltraSonic::Pin']]],
+  ['rl_5fbackward',['RL_BACKWARD',['../namespaceMotor_1_1Pin.html#a5997da01095ab37d830f08858f8002f4',1,'Motor::Pin']]],
+  ['rl_5fforward',['RL_FORWARD',['../namespaceMotor_1_1Pin.html#a5c5062dc1e969c642b4c2ee54881ed31',1,'Motor::Pin']]],
+  ['rotation',['ROTATION',['../namespaceAction.html#aa70fdae0dc70164abeb6906f66ed1693',1,'Action']]],
+  ['rotation_5fagent_5ftimeout_5fms',['ROTATION_AGENT_TIMEOUT_MS',['../namespaceRotation.html#aee28c4a27f311f14c35028123ee442f0',1,'Rotation']]],
+  ['rotation_5fcomplete',['ROTATION_COMPLETE',['../namespaceAction.html#a220855232f167c174a4925ae902cdcf6',1,'Action']]],
+  ['rr_5fbackward',['RR_BACKWARD',['../namespaceMotor_1_1Pin.html#a43a4248ec11da70f1684b853d00d9123',1,'Motor::Pin']]],
+  ['rr_5fforward',['RR_FORWARD',['../namespaceMotor_1_1Pin.html#a2d8e6b4084493e218cded6fd5ddf1bb7',1,'Motor::Pin']]]
+];

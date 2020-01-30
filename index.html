@@ -75,6 +75,7 @@ $(function() {
 <li><a class="el" href="index.html#sectionCircuitUltraSonic">Ultra sonic sensors</a></li>
 </ul>
 </li>
+<li><a class="el" href="index.html#sectionHardwarePCB">PCB Board</a></li>
 </ul>
 </li>
 <li><a class="el" href="index.html#sectionSoftware">Software</a><ul>
@@ -84,11 +85,21 @@ $(function() {
 <li><a class="el" href="index.html#sectionSoftwareCamera">Object Hunt Camera</a></li>
 </ul>
 </li>
+<li><a class="el" href="index.html#sectionHowToUse">How to use</a><ul>
+<li><a class="el" href="index.html#sectionHowToUseExamples">Examples</a><ul>
+<li><a class="el" href="index.html#sectionExampleAutonomous">Autonomous Navigation</a></li>
+<li><a class="el" href="index.html#sectionExampleSupervised">Supervised Autonomous Navigation</a></li>
+<li><a class="el" href="index.html#sectionExampleFull">Object Hunt (full functionality)</a></li>
+</ul>
+</li>
+<li><a class="el" href="index.html#sectionHowToUseTroubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
 </ul>
 <p><a class="anchor" id="sectionIntroduction"></a></p><h1>Introduction</h1>
 <p>Go to <a class="el" href="index.html#top">top</a></p>
 <p>The purpose of this project is to build a mobile robotic system that is able to move in an arbitrary environment while searching for an object. The objective of the system to avoid any kind of obstacle, draw a map of the already navigated way and "hunt" (search and identify) for an unspecified object. The shape of the object has to be defined at start of the hunt. The hunt is over, if the object is identified with at least a pre-defined certainty.</p>
-<p>For the purpose of object detection a camera module in conjunction with image processing in a neural net is used. The system has several sensors to monitor its own movement as well as orientation in space and to detect surroundings. Movement is archieved through several driven wheels. The camera module is able to move in an angle of 360 degrees. Please see the <a class="el" href="index.html#sectionHardware">hardware</a> section for more detailed information about the used hardware.</p>
+<p>For the purpose of object detection a camera module in conjunction with image processing in a neural net is used. The system has several sensors to monitor its own movement as well as orientation in space and to detect surroundings. Movement is archived through several driven wheels. The camera module is able to move in an angle of 360 degrees. Please see the <a class="el" href="index.html#sectionHardware">hardware</a> section for more detailed information about the used hardware.</p>
 <p>While the basic navigation is carried out on the mobile system itself, path mapping and object detection are outsourced on external hardware. This requires a reliable way to transfer to and from the appended hardware. Any device that supports WiFi as well as TCP/ IP is able to communicate with the system. As the system should work in any location without the need of fixed network infrastructure (e.g. a router), it creates a WiFi hotspot for external devices. The navigation application offers a TCP socket on a defined port. If any device establishes a TCP connection, data can be exchanged via well defined data structures. Please see the <a class="el" href="index.html#sectionSoftware">software</a> section for further explanation about the used software.</p>
 <p><a class="el" href="index.html#img_connection_overview">Figure 1</a> outlines a possible constellation of connected devices. The robotic system is represented by the symbol in the middle.</p>
 <p><a class="anchor" id="img_connection_overview"></a></p><div class="image">
@@ -97,17 +108,17 @@ $(function() {
 Figure 1: System overview</div></div>
 <p> <a class="anchor" id="sectionHardware"></a></p><h1>Hardware</h1>
 <p>Go to <a class="el" href="index.html#top">top</a></p>
-<p>The system is mounted on a 4WD mobile platform, further referenced as car. A Raspberry Pi 4 single board computer represents the central unit of the car. It handles connections to external devices, controlls all actuators and reads all sensors. Therefore various interfaces as I²C, Camera Serial Interface Type 2 (CSI-2) and generic GPIO pins are used. Depending on the device an auxiliary circuit or driver is interposed between the device and the Raspberry Pi. In total there are four HC SR04 sensors for obstacle detection and distance measurement attached. The revolution of each wheel is measured by an TCST1103 optical sensor. An BNO055 intelligent absolute orientation ensor is used to measure orientation and movement of the car. One Raspberry Pi camera module takes pictures of the car point of view. Each wheel can be individual driven by an attached gear motor. Furthermore a stepper motor allows turning the camera module in both directions. Please see the <a class="el" href="index.html#img_hardware_setup">diagram of the harware setup</a> for a general overview.</p>
+<p>The system is mounted on a 4WD mobile platform, further referenced as car. A Raspberry Pi 4 single board computer represents the central unit of the car. It handles connections to external devices, controls all actuators and reads all sensors. Therefore various interfaces as I²C, Camera Serial Interface Type 2 (CSI-2) and generic GPIO pins are used. Depending on the device an auxiliary circuit or driver is interposed between the device and the Raspberry Pi. In total there are four HC SR04 sensors for obstacle detection and distance measurement attached. The revolution of each wheel is measured by an TCST1103 optical sensor. An BNO055 intelligent absolute orientation sensor is used to measure orientation and movement of the car. One Raspberry Pi camera module takes pictures of the car point of view. Each wheel can be individual driven by an attached gear motor. Furthermore a stepper motor allows turning the camera module in both directions. Please see the <a class="el" href="index.html#img_hardware_setup">diagram of the hardware setup</a> for a general overview.</p>
 <p><a class="anchor" id="img_hardware_setup"></a></p><div class="image">
 <img src="hardware_setup.png" alt="hardware_setup.png"/>
 <div class="caption">
 Figure 2: Hardware overview</div></div>
 <p> <a class="anchor" id="sectionCircuit"></a></p><h2>Circuit</h2>
 <p>Go to <a class="el" href="index.html#top">top</a></p>
-<p>In order to provide a convenient way of bringing all used hardware together, a PCB board was designed. The board can easily be plugged in on top of the Raspberry Pi. All available GPIO pins are lead through and can be accessed. Furthermore a dedicated connector allows a plugged connection to each component. The PCB has a small size design to not increase the space needed by the hardware.</p>
+<p>The needed wiring for all deployed sensors and auxiliary circuits are combined in one circuit. The following sections separate the circuit in various subsections depending on their functionalities. Furthermore an explanatory text about the technical realization is attached.</p>
 <p><a class="anchor" id="sectionCircuitPinhead"></a></p><h3>Pinhead connector</h3>
 <p>Go to <a class="el" href="index.html#top">top</a></p>
-<p>The 40 pin GPIO connector of the Raspberry Pi is accessed by a pinhead connector. A button is attached in order to let the user start and stop the hunt manually. Furthermore the BNO055 intelligent movement sensor can be plugged in by a dedicated pinhead connector which is connected ba the Raspberry Pi I²C bus. Please see <a class="el" href="index.html#img_circuit_pinhead">the circuit of the pinhaed connector</a> for further information.</p>
+<p>The 40 pin GPIO connector of the Raspberry Pi is accessed by a pinhead connector. A button is attached in order to let the user start and stop the hunt manually. Furthermore the BNO055 intelligent movement sensor can be plugged in by a dedicated pinhead connector which is connected ba the Raspberry Pi I²C bus. Please see <a class="el" href="index.html#img_circuit_pinhead">the circuit of the pinhead connector</a> for further information.</p>
 <p><a class="anchor" id="img_circuit_pinhead"></a></p><div class="image">
 <img src="circuit_pinhead.png" alt="circuit_pinhead.png"/>
 <div class="caption">
@@ -121,7 +132,7 @@ Figure 3: Circuit GPIO connector</div></div>
 Figure 4: Circuit motor driver</div></div>
 <p> <a class="anchor" id="sectionCircuitRevolution"></a></p><h3>Revolution sensors</h3>
 <p>Go to <a class="el" href="index.html#top">top</a></p>
-<p>The revolution sensors are capable of registering movement of each motor through an attached brake plate. The brake plates offer 20 gaps per revolution. The revolution sensors count the noticed gaps by an infrared signal. Depending on the position of hte brake plate, it will let block the infrared light or let it pass. This is registered by a phototransistor wich will thereupon change its resistance. An auxiliary circuit will provide a high or low signal for the Raspberry Pi. In order to get a satisfiyng edge, the signal is compared with a reference voltage by an operational amplifier (MCP6004). The information of the revolution sensors is used to measure the travelled distance as well as speed of the car. Please see <a class="el" href="index.html#img_circuit_revolution">the circuit of the revolution sensors</a> for further information.</p>
+<p>The revolution sensors are capable of registering movement of each motor through an attached brake plate. The brake plates offer 20 gaps per revolution. The revolution sensors count the noticed gaps by an infrared signal. Depending on the position of hte brake plate, it will let block the infrared light or let it pass. This is registered by a phototransistor which will thereupon change its resistance. An auxiliary circuit will provide a high or low signal for the Raspberry Pi. In order to get a satisfying edge, the signal is compared with a reference voltage by an operational amplifier (MCP6004). The information of the revolution sensors is used to measure the travelled distance as well as speed of the car. Please see <a class="el" href="index.html#img_circuit_revolution">the circuit of the revolution sensors</a> for further information.</p>
 <p><a class="anchor" id="img_circuit_revolution"></a></p><div class="image">
 <img src="circuit_revolution.png" alt="circuit_revolution.png"/>
 <div class="caption">
@@ -133,16 +144,23 @@ Figure 5: Circuit revolution sensors</div></div>
 <img src="circuit_us.png" alt="circuit_us.png"/>
 <div class="caption">
 Figure 5: Circuit ultra sonic sensors</div></div>
+<p> <a class="anchor" id="sectionHardwarePCB"></a></p><h2>PCB Board</h2>
+<p>Go to <a class="el" href="index.html#top">top</a></p>
+<p>In order to provide a convenient way of bringing all used hardware together, a PCB board was designed. It contains each part of the presented sub-circuits. The board can easily be plugged in on top of the Raspberry Pi. All available GPIO pins are lead through and can be accessed. Furthermore a dedicated connector allows a plugged connection to each component. The PCB has a small size design to not increase the space needed by the hardware. Please see the <a class="el" href="index.html#img_pcb">pcb board</a> below for a graphical illustration.</p>
+<p><a class="anchor" id="img_pcb"></a> <style>div.image img[src="pcb_html.jpg"]{width:800px;}</style>  </p><div class="image">
+<img src="pcb_html.jpg" alt="pcb_html.jpg"/>
+<div class="caption">
+Figure 6: The developed PCB board</div></div>
 <p> <a class="anchor" id="sectionSoftware"></a></p><h1>Software</h1>
 <p>Go to <a class="el" href="index.html#top">top</a></p>
-<p>The software of the system consists of two individual processes. There is the <a class="el" href="index.html#sectionSoftwareBase">base process</a> and the <a class="el" href="index.html#sectionSoftwareNavigation">navigation process</a>. The first software design is to implement an application that does not consume any unnecessary CPU power while responding to events as fast as possible. In order to archive this, each involved thread observes a set of file descriptors which notify about incoming events (e.g. an incomming network message, hardware interrupt, timer interrupt, etc.). File descriptor can be coupled to various events, that the regarding thread is interested in (input, output, etc.). While observing one or a set of file descriptor, the thread is put into an inactive state by the operating system. This way the CPU power can be used for other tasks. If a requested event happens, the operating system activates the thread so it can handle the event. The whole application is fully event driven. Without an event it will consume no CPU power. Furthermore each process consists of several threads in order to execute multiple tasks in parallel. Inter-process and inter-thread communication is realized by sockets, pipes and atomic variables. Please refer to the <a class="el" href="index.html#img_software_structure">graphic of the software structure</a> for further information.</p>
+<p>The software of the system consists of two individual processes. There is the <a class="el" href="index.html#sectionSoftwareBase">base process</a> and the <a class="el" href="index.html#sectionSoftwareNavigation">navigation process</a>. The first software design is to implement an application that does not consume any unnecessary CPU power while responding to events as fast as possible. In order to archive this, each involved thread observes a set of file descriptors which notify about incoming events (e.g. an incoming network message, hardware interrupt, timer interrupt, etc.). File descriptor can be coupled to various events, that the regarding thread is interested in (input, output, etc.). While observing one or a set of file descriptor, the thread is put into an inactive state by the operating system. This way the CPU power can be used for other tasks. If a requested event happens, the operating system activates the thread so it can handle the event. The whole application is fully event driven. Without an event it will consume no CPU power. Furthermore each process consists of several threads in order to execute multiple tasks in parallel. Inter-process and inter-thread communication is realized by sockets, pipes and atomic variables. Please refer to the <a class="el" href="index.html#img_software_structure">graphic of the software structure</a> for further information.</p>
 <p><a class="anchor" id="img_software_structure"></a></p><div class="image">
 <img src="software_structure.png" alt="software_structure.png"/>
 <div class="caption">
-Figure 6: Software structure</div></div>
+Figure 7: Software structure</div></div>
 <p> <a class="anchor" id="sectionSoftwareBase"></a></p><h2>Object Hunt Base</h2>
 <p>Go to <a class="el" href="index.html#top">top</a></p>
-<p>The base process interfaces directly with all hardware except of the camera. Thereby it controls all atached motors and sensors. Please note that the camera is controlled by a separated process.</p>
+<p>The base process interfaces directly with all hardware except of the camera. Thereby it controls all attached motors and sensors. Please note that the camera is controlled by a separated process.</p>
 <p>Please click <a href="object_hunt_base/index.html">here</a> for a detailed description of the process.</p>
 <p><a class="anchor" id="sectionSoftwareNavigation"></a></p><h2>Object Hunt Navigation</h2>
 <p>Go to <a class="el" href="index.html#top">top</a></p>
@@ -151,7 +169,103 @@ Figure 6: Software structure</div></div>
 <p><a class="anchor" id="sectionSoftwareMapping"></a></p><h2>Mapping</h2>
 <p>Go to <a class="el" href="index.html#top">top</a></p>
 <p><a class="anchor" id="sectionSoftwareCamera"></a></p><h2>Camera</h2>
-<p>Go to <a class="el" href="index.html#top">top</a> </p>
+<p>Go to <a class="el" href="index.html#top">top</a></p>
+<p><a class="anchor" id="sectionHowToUse"></a></p><h1>How to use</h1>
+<p>Go to <a class="el" href="index.html#top">top</a></p>
+<p>As this project addresses an autonomous robotic system, the car is able to navigate on its own. The external processes (see the <a class="el" href="index.html#img_software_structure">graphic of the software structure</a> for further information) offer additional functions. Only the <a class="el" href="index.html#sectionSoftwareNavigation">navigation</a> and <a class="el" href="index.html#sectionSoftwareBase">base</a> process are obligatory for the robot to move. Please note that the mapping and image processing functionality will not work, if no external process is connected. External processes can be added and disconnected at any time. The <a class="el" href="index.html#sectionSoftwareNavigation">navigation</a> process is responsible for connections to external processes and handles them dynamically additional to navigating the robot.</p>
+<p>In order to offer a convenient way of controlling and monitoring the project related processes on the Raspberry Pi, a <a href="https://www.freedesktop.org/software/systemd/man/systemd.html">systemd</a> service is installed for each process. Dependencies between the processes are realized by <a href="https://www.freedesktop.org/software/systemd/man/systemd.html">systemd</a> as well. This means, that it is sufficient to start and stop the service of the base process, to start and stop all dependent processes as well.</p>
+<p>Connections to external processes can be established, when the internal processes are started. The car will start moving as soon as the attached push button is actuated. The <a class="el" href="index.html#sectionHowToUseExamples">example section</a> offers various examples on how to use the system.</p>
+<p><a class="anchor" id="sectionHowToUseExamples"></a></p><h2>Examples</h2>
+<p>Go to <a class="el" href="index.html#top">top</a></p>
+<p>The following subsections describe different methods to use the robot. Please select the use case depending on your needs and follow the given steps.</p>
+<p><a class="anchor" id="sectionExampleAutonomous"></a></p><h3>Autonomous Navigation</h3>
+<p>Go to <a class="el" href="index.html#top">top</a></p>
+<p>Please perform the following steps in the given order in order to start an autonomous navigation. You will get no feedback about the state of the processes or possibly occurred errors.</p>
+<ol type="1">
+<li>Connect the powerbank to the Raspberry Pi in order to start the boot process.</li>
+<li>Wait until the system is ready, i.e. the boot process has terminated.</li>
+<li>Push the button attached to the PCB board.</li>
+<li>The robot will start navigation until the button is pushed a second time.</li>
+</ol>
+<p><a class="anchor" id="sectionExampleSupervised"></a></p><h3>Supervised Autonomous Navigation</h3>
+<p>Go to <a class="el" href="index.html#top">top</a></p>
+<p>Please perform the following steps in the given order in order to start a supervised autonomous navigation. You will be able to get feedback about the state of the processes and possibly occurred errors via an SSH connection.</p>
+<ol type="1">
+<li>Connect the powerbank to the Raspberry Pi in order to start the boot process.</li>
+<li>Wait until the system is ready, i.e. the boot process has terminated.</li>
+<li>Connect to the WiFi network "AOHnet" with the correct WPA passphrase.</li>
+<li>Start an SSH shell as the user pi on the Raspberry Pi: <pre class="fragment"> ssh pi@10.0.0.1
+</pre></li>
+<li>Log in with the correct credentials.</li>
+</ol>
+<p>You are now logged in on the Raspberry Pi. This allows you to full control and monitoring over processes on the Raspberry Pi. In the following you will find some examples. Please see the <a href="https://www.freedesktop.org/software/systemd/man/systemctl.html">systemctl documentation</a> for a complete list of possible commands.</p>
+<p>Please note, that you need to actuate the push button regardless after starting the processes in order to actually start navigation.</p>
+<ul>
+<li>View the base process log file: <pre class="fragment">  journalctl -f -u object_hunt_base
+</pre></li>
+<li>View the navigation process log file: <pre class="fragment">  journalctl -f -u object_hunt_navigation
+</pre></li>
+<li>View the streaming process log file: <pre class="fragment">  journalctl -f -u object_hunt_camera
+</pre></li>
+<li>Start all processes <pre class="fragment">  sudo systemctl start object_hunt_base
+</pre></li>
+<li>Stop all processes <pre class="fragment">  sudo systemctl stop object_hunt_base
+</pre></li>
+<li>Restart all processes <pre class="fragment">  sudo systemctl restart object_hunt_base
+</pre></li>
+<li>Enable all processes (will automatic start the processes at system start) <pre class="fragment">  sudo systemctl enable object_hunt_base
+</pre></li>
+<li>Disable all processes (will disable automatic start of teh processes at system start) <pre class="fragment">  sudo systemctl disable object_hunt_base
+</pre></li>
+</ul>
+<p><a class="anchor" id="sectionExampleFull"></a></p><h3>Object Hunt (full functionality)</h3>
+<p>Go to <a class="el" href="index.html#top">top</a></p>
+<p>Please perform the following steps in the given order in order to use the full functionality of this project. this can be combined with an SSH connection in order to allow full control and monitoring over teh processes. Please see the <a class="el" href="index.html#sectionExampleSupervised">previous section</a> for an example on how to establish an SSH connection and control the processes.</p>
+<p>You will need an external computer running the mapping and image processing processes. The computer needs to be connected to the WiFi network of the Raspberry Pi (AOHnet). Additionally the process responsible for the video stream needs to know the IP address of the computer. It is advisable to implement a static IP for the external computer (can be done in /etc/dnsmasq.conf on the Raspberry Pi).</p>
+<ol type="1">
+<li>Check that the external computer is connected to AOHnet and has the correct IP address.</li>
+<li><p class="startli">Adjust the service of the video stream process to match the IP address of the external computer: </p><pre class="fragment"> sudo nano /etc/systemd/system/object_hunt_camera.service
+</pre><p class="startli">Adjust the IP address in the line beginning with "ExecStart=...". </p><pre class="fragment">ExecStart=python3 /home/pi/object_hunt/tim/client.py -s 10.0.0.3
+</pre><p class="startli">Save and close the file.</p>
+</li>
+<li>Start all processes on the Raspberry Pi: <pre class="fragment"> sudo systemctl start object_hunt_base
+</pre></li>
+</ol>
+<p>All processes are correct configured and running on the Raspberry Pi. Now you need to start the processes on teh external computer. This example only covers external computers running an actual linux distribution. The processes are known to run on other operating systems (i.e. Microsoft Windows, Apple iOS) as well. The mapping process requires at least Java JDK 8. The image processing needs Python 3.7.3.</p>
+<ol type="1">
+<li>Install some additional packages for the image processing. It is recommended to set up a virtual environment: <pre class="fragment"> pip install opencv-contrib-python
+ pip install zmq
+ pip install imutils
+</pre></li>
+<li>Clone the project repository in order to get the necessary files: <pre class="fragment"> git clone https://github.com/Teawolf-beep/Object-Hunt.git
+</pre></li>
+<li><p class="startli">Change into the "scripts" directory of the cloned repo: </p><pre class="fragment"> cd Object-Hunt/scripts
+</pre><p class="startli">You will see three bash scripts (maybe you need to make them executable to run them). The "object_hunt.bash" script calls the "camera.bash" and "mapping.bash" script. The mapping script should run without further configuration.</p>
+</li>
+<li><p class="startli">The image processing script expects the path to a python virtual environment with all packages installed. Modify the regarding line in the camera script: </p><pre class="fragment"> nano camera.bash
+</pre><p class="startli">Write the path to the virtual environment in the line beginning with "source ...". </p><pre class="fragment">source /path/to/your/virtual/env/bin/activate
+</pre><p class="startli">If you have the packages installed system wide (not recommended), just comment the line out. </p><pre class="fragment">#source /path/to/your/virtual/env/bin/activate
+</pre><p class="startli">Save and close the file.</p>
+</li>
+<li>Start the mapping process: <pre class="fragment"> ./mapping.bash
+</pre></li>
+<li>Open a new terminal and run the camera process: <pre class="fragment"> ./camera.bash
+</pre></li>
+<li>Verify the system is working correctly based on the terminal output.</li>
+<li>When the camera detects the object (by default a tennis ball), the car will stop moving, turn around the own axis and terminate the mapping process.</li>
+<li>Find the created map and navigated route in the folder "object_hunt_mapping" of the cloned github repo.</li>
+</ol>
+<p>The "object_hunt.bash" script exists only to facilitate execution of both processes as it automates some things. It tries to use <a href="https://st.suckless.org/">st terminal</a>. If you do not have the st terminal and do not want to install it, please change the regarding commands.</p>
+<p><a class="anchor" id="sectionHowToUseTroubleshooting"></a></p><h2>Troubleshooting</h2>
+<p>Go to <a class="el" href="index.html#top">top</a></p>
+<p>If the robot is not working as expected, please log in via SSH and read the process logs. All known issues will be written to the log files. Please remember to connect to the WiFi network of the Raspberry Pi first.</p>
+<ul>
+<li>View the base process log file: <pre class="fragment">  journalctl -f -u object_hunt_base
+</pre></li>
+<li>View the navigation process log file: <pre class="fragment">  journalctl -f -u object_hunt_navigation
+</pre></li>
+<li>View the streaming process log file: <pre class="fragment">  journalctl -f -u object_hunt_camera</pre> </li>
+</ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

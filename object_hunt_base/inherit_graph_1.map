@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classBNO__055Exception.html" title="Exception thrown by the BNO_055 class. " alt="" coords="157,5,294,32"/>
+<area shape="rect" id="node3" href="$classGearMotorException.html" title="Exception thrown by the GearMotor class. " alt="" coords="155,56,296,83"/>
+<area shape="rect" id="node4" href="$classGPIOException.html" title="Exception thrown by the GPIO class. " alt="" coords="169,107,282,133"/>
+<area shape="rect" id="node5" href="$classHardwareInterfaceException.html" title="Exception thrown by the HardwareInterface class. " alt="" coords="132,157,319,184"/>
+<area shape="rect" id="node6" href="$classHC__SR04Exception.html" title="Exception thrown by the HC_SR04 (ultra sonic sensor) class. " alt="" coords="155,208,295,235"/>
+<area shape="rect" id="node7" href="$classI2CException.html" title="Exception thrown by the I2C class. " alt="" coords="175,259,276,285"/>
+<area shape="rect" id="node8" href="$classTaskDistributorException.html" title="Exception thrown by the TaskDistributor class. " alt="" coords="141,309,310,336"/>
+<area shape="rect" id="node9" href="$classTCST__1103Exception.html" title="Exception thrown by the TCST_1103 class. " alt="" coords="150,360,301,387"/>
+<area shape="rect" id="node10" href="$classVMA__401Exception.html" title="Exception thrown by the VMA_401 class. " alt="" coords="157,411,294,437"/>
+</map>

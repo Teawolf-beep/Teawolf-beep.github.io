@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['button_118',['Button',['../namespaceButton.html',1,'']]]
+  ['button',['Button',['../namespaceButton.html',1,'']]]
 ];

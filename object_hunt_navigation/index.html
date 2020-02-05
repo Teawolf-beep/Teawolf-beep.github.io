@@ -64,8 +64,12 @@ $(function() {
 <div class="title">Object Hunt Navigation Information Page </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="top"></a> Go back to the <a href="../index.html">main information page</a></p>
+<div class="textblock"><p><a class="anchor" id="top"></a> </p><h2>Fast navigation</h2>
+<p>Go to the <a href="https://github.com/Teawolf-beep/Object-Hunt">Github repository</a></p>
+<p>Go to the <a href="../index.html">main information page</a></p>
 <p>Go to the <a href="../object_hunt_base/index.html">object hunt base information page</a></p>
+<p>Go to the <a href="../object_hunt_mapping/index.html">object hunt mapping information page</a></p>
+<h1>About this page</h1>
 <p>This page offers information about all used classes, namespaces and header files for the navigation process. The navigation process tries to establish a TCP connection to the base process and starts requesting the ultra sonic sensors immediately. Depending on the response it computes a way to go and sends a motor command to the base process. Consequemtly it enters a loop of requesting sensor measuring, processing and sharing measurement responds and sending motor commands.</p>
 <p>While the navigation is running, a separated thread listens for connection on a defined port (19002). It handles how new connection are handled, advises the navigation thread in case of an event and removes closed connections. All connection related methods are implemented in the <a class="el" href="classConnectionManager.html" title="Helps handling multiple socket connections. ">ConnectionManager</a> class.</p>
 <p>Please find a simplified class diagram <a class="el" href="index.html#img_class_diagram_navigation">below</a>. The class diagram only shows public member of hte respecting class and does not include parent classes for a clearer arrangement.</p>
